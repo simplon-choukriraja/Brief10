@@ -1,3 +1,5 @@
+  UW PICO 5.09                                    File: redis.yml                                      
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -32,7 +34,11 @@ spec:
           value: "no"
         ports:
         - containerPort: 6379
-          name: redis
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"
         volumeMounts:
         - name: vol
           mountPath: "/data"
